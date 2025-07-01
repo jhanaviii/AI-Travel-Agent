@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Visualizations - AI Travel</title>
+    <meta name="description" content="Your AI-generated travel photos. Relive your virtual adventures and share them with the world.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-icon">
+                        <i class="fas fa-magic"></i>
+                        <div class="logo-dot"></div>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">AI Travel</span>
+                        <div class="logo-subtitle">Visualize Your Dreams</div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="upload.html" class="nav-link">
+                    <i class="fas fa-camera"></i>
+                    <span>Upload Photo</span>
+                </a>
+                <a href="destinations.html" class="nav-link">
+                    <i class="fas fa-globe"></i>
+                    <span>Destinations</span>
+                </a>
+                <a href="recommendations.html" class="nav-link">
+                    <i class="fas fa-magic"></i>
+                    <span>Recommendations</span>
+                </a>
+                <a href="visualizations.html" class="nav-link active">
+                    <i class="fas fa-images"></i>
+                    <span>My Gallery</span>
+                </a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Header Section -->
+            <div class="visualizations-header">
+                <div class="step-badge">
+                    <i class="fas fa-images"></i>
+                    <span>Your Gallery</span>
+                </div>
+                
+                <h1 class="visualizations-title">My Visualizations</h1>
+                
+                <p class="visualizations-description">
+                    Your AI-generated travel photos. Relive your virtual adventures and share them with the world.
+                </p>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <div class="stat-number" id="total-visualizations">0</div>
+                        <div class="stat-label">Total Visualizations</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="stat-number" id="countries-visited">0</div>
+                        <div class="stat-label">Countries Visited</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="stat-number" id="this-week">0</div>
+                        <div class="stat-label">This Week</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="stat-number" id="recent-count">0</div>
+                        <div class="stat-label">This Week</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search and Filter Section -->
+            <div class="search-filter-section">
+                <div class="search-filter-container">
+                    <!-- Search Bar -->
+                    <div class="search-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input 
+                            type="text" 
+                            id="search-input" 
+                            class="search-input" 
+                            placeholder="Search your visualizations..."
+                        >
+                    </div>
+
+                    <!-- Filter Buttons -->
+                    <div class="filter-buttons">
+                        <i class="fas fa-filter filter-icon"></i>
+                        <div class="filter-tabs">
+                            <button class="filter-tab active" data-filter="all">
+                                <i class="fas fa-images"></i>
+                                <span>All</span>
+                            </button>
+                            <button class="filter-tab" data-filter="recent">
+                                <i class="fas fa-calendar"></i>
+                                <span>Recent</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Summary -->
+                <div class="results-summary">
+                    <div class="results-count">
+                        <i class="fas fa-images"></i>
+                        <span id="results-count">0 visualizations found</span>
+                    </div>
+                    <button class="clear-filters" id="clear-filters" style="display: none;">
+                        Clear filters
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div class="loading-state" id="loading-state">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">Loading your visualizations...</p>
+            </div>
+
+            <!-- Gallery Section -->
+            <div class="gallery-section" id="gallery-section" style="display: none;">
+                <div class="gallery-grid" id="gallery-grid">
+                    <!-- Visualization cards will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="empty-state" style="display: none;">
+                <div class="empty-icon">
+                    <i class="fas fa-images"></i>
+                </div>
+                <h3 class="empty-title">No visualizations found</h3>
+                <p class="empty-description" id="empty-description">
+                    You haven't created any visualizations yet. Start by uploading a photo and exploring destinations!
+                </p>
+                <div class="empty-actions" id="empty-actions">
+                    <a href="upload.html" class="btn btn-primary">
+                        Upload Photo
+                    </a>
+                    <a href="destinations.html" class="btn btn-secondary">
+                        Explore Destinations
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions" id="quick-actions" style="display: none;">
+                <h3 class="quick-actions-title">Quick Actions</h3>
+                <div class="quick-actions-buttons">
+                    <button class="quick-action-btn" id="download-all">
+                        <i class="fas fa-download"></i>
+                        <span>Download All</span>
+                    </button>
+                    <button class="quick-action-btn" id="share-gallery">
+                        <i class="fas fa-share-alt"></i>
+                        <span>Share Gallery</span>
+                    </button>
+                    <button class="quick-action-btn" id="view-recent">
+                        <i class="fas fa-heart"></i>
+                        <span>View Recent</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">
+                        <span>AI</span>
+                    </div>
+                    <span class="footer-logo-text">AI Travel</span>
+                </div>
+                <div class="footer-copyright">
+                    © 2024 AI Travel. Made with ❤️ for travelers worldwide.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="lightbox-image" class="lightbox-image" alt="Visualization">
+            <div class="lightbox-info">
+                <h3 id="lightbox-title" class="lightbox-title"></h3>
+                <p id="lightbox-location" class="lightbox-location"></p>
+                <div class="lightbox-actions">
+                    <button class="lightbox-action" id="lightbox-download">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </button>
+                    <button class="lightbox-action" id="lightbox-share">
+                        <i class="fas fa-share-alt"></i>
+                        Share
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/visualizations.js"></script>
+</body>
+</html>

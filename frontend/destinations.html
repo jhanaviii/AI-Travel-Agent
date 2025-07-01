@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Destinations - AI Travel</title>
+    <meta name="description" content="Choose from hundreds of amazing destinations worldwide and see yourself there in seconds.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-icon">
+                        <i class="fas fa-magic"></i>
+                        <div class="logo-dot"></div>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">AI Travel</span>
+                        <div class="logo-subtitle">Visualize Your Dreams</div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="upload.html" class="nav-link">
+                    <i class="fas fa-camera"></i>
+                    <span>Upload Photo</span>
+                </a>
+                <a href="destinations.html" class="nav-link active">
+                    <i class="fas fa-globe"></i>
+                    <span>Destinations</span>
+                </a>
+                <a href="recommendations.html" class="nav-link">
+                    <i class="fas fa-magic"></i>
+                    <span>Recommendations</span>
+                </a>
+                <a href="visualizations.html" class="nav-link">
+                    <i class="fas fa-images"></i>
+                    <span>My Gallery</span>
+                </a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Header Section -->
+            <div class="destinations-header">
+                <div class="step-badge">
+                    <i class="fas fa-globe"></i>
+                    <span>Step 2 of 3</span>
+                </div>
+                
+                <h1 class="destinations-title">Explore Destinations</h1>
+                
+                <p class="destinations-description">
+                    Choose from hundreds of amazing destinations worldwide and see yourself there in seconds
+                </p>
+            </div>
+
+            <!-- Photo Upload Warning -->
+            <div class="photo-warning" id="photo-warning" style="display: none;">
+                <div class="warning-content">
+                    <div class="warning-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="warning-text">
+                        <h3 class="warning-title">Photo Required</h3>
+                        <p class="warning-description">
+                            You need to upload your photo first to generate visualizations. 
+                            Don't worry, it only takes a minute!
+                        </p>
+                        <a href="upload.html" class="btn btn-warning">
+                            <i class="fas fa-camera"></i>
+                            Upload Photo Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search and Filter Section -->
+            <div class="search-filter-section">
+                <div class="search-filter-container">
+                    <!-- Search Bar -->
+                    <div class="search-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input 
+                            type="text" 
+                            id="search-input" 
+                            class="search-input" 
+                            placeholder="Search destinations..."
+                        >
+                    </div>
+
+                    <!-- Continent Filter -->
+                    <div class="filter-container">
+                        <i class="fas fa-filter filter-icon"></i>
+                        <select id="continent-filter" class="filter-select">
+                            <option value="">All Continents</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Results Summary -->
+                <div class="results-summary">
+                    <div class="results-count">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="results-count">0 destinations found</span>
+                    </div>
+                    <button class="clear-search" id="clear-search" style="display: none;">
+                        Clear search
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div class="loading-state" id="loading-state">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">Loading amazing destinations...</p>
+            </div>
+
+            <!-- Destinations Grid -->
+            <div class="destinations-grid" id="destinations-grid" style="display: none;">
+                <!-- Destination cards will be dynamically inserted here -->
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="empty-state" style="display: none;">
+                <div class="empty-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3 class="empty-title">No destinations found</h3>
+                <p class="empty-description" id="empty-description">
+                    Try selecting a different continent or check back later for new destinations.
+                </p>
+                <button class="btn btn-secondary" id="clear-filters-btn" style="display: none;">
+                    Clear Filters
+                </button>
+            </div>
+
+            <!-- Progress Indicator -->
+            <div class="progress-indicator">
+                <div class="progress-step">
+                    <div class="progress-number">1</div>
+                    <span class="progress-label">Upload Photo</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step active">
+                    <div class="progress-number">2</div>
+                    <span class="progress-label">Choose Destination</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <div class="progress-number">3</div>
+                    <span class="progress-label">Get Visualization</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">
+                        <span>AI</span>
+                    </div>
+                    <span class="footer-logo-text">AI Travel</span>
+                </div>
+                <div class="footer-copyright">
+                    © 2024 AI Travel. Made with ❤️ for travelers worldwide.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/destinations.js"></script>
+</body>
+</html>

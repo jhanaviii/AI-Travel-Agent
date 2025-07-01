@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Booking - AI Travel</title>
+    <meta name="description" content="Book your perfect trip with AI Travel. Find flights, hotels, activities, and unique experiences worldwide.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/booking.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-icon">
+                        <i class="fas fa-magic"></i>
+                        <div class="logo-dot"></div>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">AI Travel</span>
+                        <div class="logo-subtitle">Visualize Your Dreams</div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="upload.html" class="nav-link">
+                    <i class="fas fa-camera"></i>
+                    <span>Upload Photo</span>
+                </a>
+                <a href="destinations.html" class="nav-link">
+                    <i class="fas fa-globe"></i>
+                    <span>Destinations</span>
+                </a>
+                <a href="recommendations.html" class="nav-link">
+                    <i class="fas fa-magic"></i>
+                    <span>Recommendations</span>
+                </a>
+                <a href="booking.html" class="nav-link active">
+                    <i class="fas fa-plane"></i>
+                    <span>Book Travel</span>
+                </a>
+                <a href="visualizations.html" class="nav-link">
+                    <i class="fas fa-images"></i>
+                    <span>My Gallery</span>
+                </a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Booking Header -->
+        <section class="booking-header">
+            <div class="container">
+                <div class="booking-badge">
+                    <i class="fas fa-plane"></i>
+                    <span>Instant Travel Booking</span>
+                </div>
+                
+                <h1 class="booking-title">
+                    Book Your
+                    <span class="gradient-text">Dream Trip</span>
+                </h1>
+                
+                <p class="booking-description">
+                    Find and book flights, hotels, activities, and unique experiences worldwide. 
+                    Get the best deals and create unforgettable memories.
+                </p>
+            </div>
+        </section>
+
+        <!-- Booking Tabs -->
+        <section class="booking-tabs-section">
+            <div class="container">
+                <div class="booking-tabs">
+                    <button class="booking-tab active" data-tab="flights">
+                        <i class="fas fa-plane"></i>
+                        <span>Flights</span>
+                    </button>
+                    <button class="booking-tab" data-tab="hotels">
+                        <i class="fas fa-bed"></i>
+                        <span>Hotels</span>
+                    </button>
+                    <button class="booking-tab" data-tab="activities">
+                        <i class="fas fa-hiking"></i>
+                        <span>Activities</span>
+                    </button>
+                    <button class="booking-tab" data-tab="packages">
+                        <i class="fas fa-suitcase"></i>
+                        <span>Packages</span>
+                    </button>
+                    <button class="booking-tab" data-tab="agents">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Travel Agents</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flight Booking -->
+        <section class="booking-content active" id="flights-tab">
+            <div class="container">
+                <div class="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="flight-from">
+                                <i class="fas fa-plane-departure"></i>
+                                From
+                            </label>
+                            <input type="text" id="flight-from" placeholder="Departure city" class="form-input">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="flight-to">
+                                <i class="fas fa-plane-arrival"></i>
+                                To
+                            </label>
+                            <input type="text" id="flight-to" placeholder="Destination city" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="flight-depart">
+                                <i class="fas fa-calendar"></i>
+                                Departure
+                            </label>
+                            <input type="text" id="flight-depart" placeholder="Select date" class="form-input datepicker">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="flight-return">
+                                <i class="fas fa-calendar-check"></i>
+                                Return
+                            </label>
+                            <input type="text" id="flight-return" placeholder="Select date" class="form-input datepicker">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="flight-passengers">
+                                <i class="fas fa-users"></i>
+                                Passengers
+                            </label>
+                            <select id="flight-passengers" class="form-select">
+                                <option value="1">1 Adult</option>
+                                <option value="2">2 Adults</option>
+                                <option value="3">3 Adults</option>
+                                <option value="4">4 Adults</option>
+                                <option value="5">5+ Adults</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="flight-class">
+                                <i class="fas fa-crown"></i>
+                                Class
+                            </label>
+                            <select id="flight-class" class="form-select">
+                                <option value="economy">Economy</option>
+                                <option value="premium">Premium Economy</option>
+                                <option value="business">Business</option>
+                                <option value="first">First Class</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="btn btn-primary btn-large" id="search-flights">
+                            <i class="fas fa-search"></i>
+                            Search Flights
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Flight Results -->
+                <div class="booking-results" id="flight-results">
+                    <div class="results-header">
+                        <h3>Available Flights</h3>
+                        <div class="results-filters">
+                            <select class="filter-select">
+                                <option value="price">Sort by Price</option>
+                                <option value="duration">Sort by Duration</option>
+                                <option value="departure">Sort by Departure</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="results-grid" id="flight-results-grid">
+                        <!-- Flight results will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hotel Booking -->
+        <section class="booking-content" id="hotels-tab">
+            <div class="container">
+                <div class="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="hotel-destination">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Destination
+                            </label>
+                            <input type="text" id="hotel-destination" placeholder="Where are you going?" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="hotel-checkin">
+                                <i class="fas fa-calendar"></i>
+                                Check-in
+                            </label>
+                            <input type="text" id="hotel-checkin" placeholder="Select date" class="form-input datepicker">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="hotel-checkout">
+                                <i class="fas fa-calendar-check"></i>
+                                Check-out
+                            </label>
+                            <input type="text" id="hotel-checkout" placeholder="Select date" class="form-input datepicker">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="hotel-guests">
+                                <i class="fas fa-users"></i>
+                                Guests
+                            </label>
+                            <select id="hotel-guests" class="form-select">
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                                <option value="5">5+ Guests</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="hotel-rooms">
+                                <i class="fas fa-bed"></i>
+                                Rooms
+                            </label>
+                            <select id="hotel-rooms" class="form-select">
+                                <option value="1">1 Room</option>
+                                <option value="2">2 Rooms</option>
+                                <option value="3">3 Rooms</option>
+                                <option value="4">4+ Rooms</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="btn btn-primary btn-large" id="search-hotels">
+                            <i class="fas fa-search"></i>
+                            Search Hotels
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hotel Results -->
+                <div class="booking-results" id="hotel-results">
+                    <div class="results-header">
+                        <h3>Available Hotels</h3>
+                        <div class="results-filters">
+                            <select class="filter-select">
+                                <option value="price">Sort by Price</option>
+                                <option value="rating">Sort by Rating</option>
+                                <option value="distance">Sort by Distance</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="results-grid" id="hotel-results-grid">
+                        <!-- Hotel results will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Booking -->
+        <section class="booking-content" id="activities-tab">
+            <div class="container">
+                <div class="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="activity-destination">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Destination
+                            </label>
+                            <input type="text" id="activity-destination" placeholder="Where do you want to explore?" class="form-input">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="activity-category">
+                                <i class="fas fa-tags"></i>
+                                Category
+                            </label>
+                            <select id="activity-category" class="form-select">
+                                <option value="">All Activities</option>
+                                <option value="adventure">Adventure</option>
+                                <option value="culture">Culture & History</option>
+                                <option value="food">Food & Dining</option>
+                                <option value="nature">Nature & Wildlife</option>
+                                <option value="water">Water Sports</option>
+                                <option value="wellness">Wellness & Spa</option>
+                                <option value="shopping">Shopping</option>
+                                <option value="nightlife">Nightlife</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="activity-date">
+                                <i class="fas fa-calendar"></i>
+                                Date
+                            </label>
+                            <input type="text" id="activity-date" placeholder="Select date" class="form-input datepicker">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="activity-participants">
+                                <i class="fas fa-users"></i>
+                                Participants
+                            </label>
+                            <select id="activity-participants" class="form-select">
+                                <option value="1">1 Person</option>
+                                <option value="2">2 People</option>
+                                <option value="3">3 People</option>
+                                <option value="4">4 People</option>
+                                <option value="5">5+ People</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="activity-duration">
+                                <i class="fas fa-clock"></i>
+                                Duration
+                            </label>
+                            <select id="activity-duration" class="form-select">
+                                <option value="">Any Duration</option>
+                                <option value="1-3">1-3 Hours</option>
+                                <option value="3-6">3-6 Hours</option>
+                                <option value="6-12">6-12 Hours</option>
+                                <option value="1-day">Full Day</option>
+                                <option value="multi-day">Multi-Day</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="btn btn-primary btn-large" id="search-activities">
+                            <i class="fas fa-search"></i>
+                            Search Activities
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Activity Results -->
+                <div class="booking-results" id="activity-results">
+                    <div class="results-header">
+                        <h3>Available Activities</h3>
+                        <div class="results-filters">
+                            <select class="filter-select">
+                                <option value="price">Sort by Price</option>
+                                <option value="rating">Sort by Rating</option>
+                                <option value="duration">Sort by Duration</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="results-grid" id="activity-results-grid">
+                        <!-- Activity results will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Package Booking -->
+        <section class="booking-content" id="packages-tab">
+            <div class="container">
+                <div class="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="package-destination">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Destination
+                            </label>
+                            <input type="text" id="package-destination" placeholder="Where do you want to go?" class="form-input">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="package-type">
+                                <i class="fas fa-suitcase"></i>
+                                Package Type
+                            </label>
+                            <select id="package-type" class="form-select">
+                                <option value="">All Packages</option>
+                                <option value="romantic">Romantic Getaway</option>
+                                <option value="family">Family Vacation</option>
+                                <option value="adventure">Adventure Package</option>
+                                <option value="luxury">Luxury Escape</option>
+                                <option value="budget">Budget Friendly</option>
+                                <option value="honeymoon">Honeymoon</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="package-departure">
+                                <i class="fas fa-calendar"></i>
+                                Departure Date
+                            </label>
+                            <input type="text" id="package-departure" placeholder="Select date" class="form-input datepicker">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="package-duration">
+                                <i class="fas fa-clock"></i>
+                                Duration
+                            </label>
+                            <select id="package-duration" class="form-select">
+                                <option value="">Any Duration</option>
+                                <option value="3-5">3-5 Days</option>
+                                <option value="6-10">6-10 Days</option>
+                                <option value="11-15">11-15 Days</option>
+                                <option value="16+">16+ Days</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="package-travelers">
+                                <i class="fas fa-users"></i>
+                                Travelers
+                            </label>
+                            <select id="package-travelers" class="form-select">
+                                <option value="1">1 Person</option>
+                                <option value="2">2 People</option>
+                                <option value="3">3 People</option>
+                                <option value="4">4 People</option>
+                                <option value="5">5+ People</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="btn btn-primary btn-large" id="search-packages">
+                            <i class="fas fa-search"></i>
+                            Search Packages
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Package Results -->
+                <div class="booking-results" id="package-results">
+                    <div class="results-header">
+                        <h3>Available Packages</h3>
+                        <div class="results-filters">
+                            <select class="filter-select">
+                                <option value="price">Sort by Price</option>
+                                <option value="rating">Sort by Rating</option>
+                                <option value="duration">Sort by Duration</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="results-grid" id="package-results-grid">
+                        <!-- Package results will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Agents -->
+        <section class="booking-content" id="agents-tab">
+            <div class="container">
+                <div class="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="agent-specialty">
+                                <i class="fas fa-star"></i>
+                                Specialty
+                            </label>
+                            <select id="agent-specialty" class="form-select">
+                                <option value="">All Specialties</option>
+                                <option value="luxury">Luxury Travel</option>
+                                <option value="adventure">Adventure Travel</option>
+                                <option value="family">Family Travel</option>
+                                <option value="business">Business Travel</option>
+                                <option value="honeymoon">Honeymoon & Romance</option>
+                                <option value="group">Group Travel</option>
+                                <option value="budget">Budget Travel</option>
+                                <option value="cultural">Cultural Tours</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="agent-destination">
+                                <i class="fas fa-globe"></i>
+                                Destination Expertise
+                            </label>
+                            <select id="agent-destination" class="form-select">
+                                <option value="">All Destinations</option>
+                                <option value="europe">Europe</option>
+                                <option value="asia">Asia</option>
+                                <option value="americas">Americas</option>
+                                <option value="africa">Africa</option>
+                                <option value="oceania">Oceania</option>
+                                <option value="middle-east">Middle East</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="agent-language">
+                                <i class="fas fa-language"></i>
+                                Language
+                            </label>
+                            <select id="agent-language" class="form-select">
+                                <option value="">All Languages</option>
+                                <option value="english">English</option>
+                                <option value="spanish">Spanish</option>
+                                <option value="french">French</option>
+                                <option value="german">German</option>
+                                <option value="italian">Italian</option>
+                                <option value="portuguese">Portuguese</option>
+                                <option value="chinese">Chinese</option>
+                                <option value="japanese">Japanese</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="agent-rating">
+                                <i class="fas fa-star"></i>
+                                Minimum Rating
+                            </label>
+                            <select id="agent-rating" class="form-select">
+                                <option value="0">Any Rating</option>
+                                <option value="4">4+ Stars</option>
+                                <option value="4.5">4.5+ Stars</option>
+                                <option value="5">5 Stars</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="btn btn-primary btn-large" id="search-agents">
+                            <i class="fas fa-search"></i>
+                            Find Travel Agents
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Agent Results -->
+                <div class="booking-results" id="agent-results">
+                    <div class="results-header">
+                        <h3>Travel Agents</h3>
+                        <div class="results-filters">
+                            <select class="filter-select">
+                                <option value="rating">Sort by Rating</option>
+                                <option value="experience">Sort by Experience</option>
+                                <option value="reviews">Sort by Reviews</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="results-grid" id="agent-results-grid">
+                        <!-- Agent results will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <div class="container">
+                <div class="quick-actions-title">
+                    <h3>Quick Actions</h3>
+                    <p>Popular destinations and trending deals</p>
+                </div>
+                
+                <div class="quick-actions-buttons">
+                    <button class="quick-action-btn" data-destination="paris">
+                        <i class="fas fa-eiffel-tower"></i>
+                        <span>Paris</span>
+                    </button>
+                    <button class="quick-action-btn" data-destination="tokyo">
+                        <i class="fas fa-torii-gate"></i>
+                        <span>Tokyo</span>
+                    </button>
+                    <button class="quick-action-btn" data-destination="bali">
+                        <i class="fas fa-umbrella-beach"></i>
+                        <span>Bali</span>
+                    </button>
+                    <button class="quick-action-btn" data-destination="new-york">
+                        <i class="fas fa-city"></i>
+                        <span>New York</span>
+                    </button>
+                    <button class="quick-action-btn" data-destination="dubai">
+                        <i class="fas fa-mosque"></i>
+                        <span>Dubai</span>
+                    </button>
+                    <button class="quick-action-btn" data-destination="santorini">
+                        <i class="fas fa-sun"></i>
+                        <span>Santorini</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="footer-logo-icon">
+                    <i class="fas fa-magic"></i>
+                </div>
+                <div class="footer-logo-text">
+                    <span>AI Travel</span>
+                    <div>Visualize Your Dreams</div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                © 2024 AI Travel. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+</html> 

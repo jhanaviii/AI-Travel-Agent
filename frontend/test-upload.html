@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Test - AI Travel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .test-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .test-status {
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+            font-weight: 500;
+        }
+        .test-status.success { background: #dcfce7; color: #166534; }
+        .test-status.error { background: #fef2f2; color: #dc2626; }
+        .test-status.info { background: #dbeafe; color: #1e40af; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Upload Test Page</h1>
+        <p>This page tests the upload functionality to ensure everything works correctly.</p>
+        
+        <div id="test-status" class="test-status info">
+            Testing upload functionality...
+        </div>
+        
+        <div class="upload-area">
+            <div class="photo-upload" id="photo-upload">
+                <div class="upload-content" id="upload-content">
+                    <div class="upload-icon">
+                        <i class="fas fa-camera"></i>
+                        <div class="upload-dot"></div>
+                    </div>
+                    
+                    <div class="upload-text">
+                        <h3 class="upload-heading">Upload Your Photo</h3>
+                        <p class="upload-subtext">Choose a clear photo with your face visible</p>
+                    </div>
+                    
+                    <div class="upload-actions">
+                        <button class="btn btn-primary" id="choose-photo-btn">
+                            <i class="fas fa-upload"></i>
+                            Choose Photo
+                        </button>
+                        <div class="upload-or">or drag and drop</div>
+                    </div>
+                </div>
+                
+                <div class="upload-preview" id="upload-preview" style="display: none;">
+                    <div class="preview-container">
+                        <img id="preview-image" class="preview-image" alt="Preview">
+                        <button class="preview-remove" id="preview-remove">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="preview-status" id="preview-status">
+                        <div class="status-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <span>Ready</span>
+                    </div>
+                    
+                    <!-- Upload Form -->
+                    <form class="upload-form" id="upload-form">
+                        <button type="submit" class="btn btn-primary upload-btn" id="upload-btn">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            Upload Photo
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div id="test-results"></div>
+    </div>
+
+    <!-- Hidden File Input -->
+    <input type="file" id="file-input" accept="image/*" style="display: none;">
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script>
+        // Initialize UI
+        const ui = new UIUtils();
+        ui.init();
+        
+        // Test upload functionality
+        const testUpload = async () => {
+            const statusEl = document.getElementById('test-status');
+            const resultsEl = document.getElementById('test-results');
+            
+            try {
+                // Test 1: Check if file input exists
+                const fileInput = document.getElementById('file-input');
+                if (!fileInput) {
+                    throw new Error('File input not found');
+                }
+                
+                // Test 2: Check if upload form exists
+                const uploadForm = document.getElementById('upload-form');
+                if (!uploadForm) {
+                    throw new Error('Upload form not found');
+                }
+                
+                // Test 3: Check if upload button exists
+                const uploadBtn = document.getElementById('upload-btn');
+                if (!uploadBtn) {
+                    throw new Error('Upload button not found');
+                }
+                
+                // Test 4: Check if API service exists
+                if (typeof APIService === 'undefined') {
+                    throw new Error('API service not found');
+                }
+                
+                statusEl.className = 'test-status success';
+                statusEl.textContent = '✅ All upload components found! Upload functionality should work.';
+                
+                resultsEl.innerHTML = `
+                    <h3>Test Results:</h3>
+                    <ul>
+                        <li>✅ File input: Found</li>
+                        <li>✅ Upload form: Found</li>
+                        <li>✅ Upload button: Found</li>
+                        <li>✅ API service: Found</li>
+                    </ul>
+                    <p><strong>Next:</strong> Try selecting a photo and clicking the upload button!</p>
+                `;
+                
+            } catch (error) {
+                statusEl.className = 'test-status error';
+                statusEl.textContent = `❌ Test failed: ${error.message}`;
+                
+                resultsEl.innerHTML = `
+                    <h3>Error Details:</h3>
+                    <p>${error.message}</p>
+                `;
+            }
+        };
+        
+        // Run test when page loads
+        document.addEventListener('DOMContentLoaded', testUpload);
+    </script>
+</body>
+</html> 

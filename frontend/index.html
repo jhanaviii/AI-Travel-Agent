@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Travel - Visualize Yourself Anywhere</title>
+    <meta name="description" content="See yourself at any destination before you book with AI-powered visualization. Upload your photo and explore thousands of destinations worldwide.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-icon">
+                        <i class="fas fa-magic"></i>
+                        <div class="logo-dot"></div>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">AI Travel</span>
+                        <div class="logo-subtitle">Visualize Your Dreams</div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="upload.html" class="nav-link">
+                    <i class="fas fa-camera"></i>
+                    <span>Upload Photo</span>
+                </a>
+                <a href="destinations.html" class="nav-link">
+                    <i class="fas fa-globe"></i>
+                    <span>Destinations</span>
+                </a>
+                <a href="recommendations.html" class="nav-link">
+                    <i class="fas fa-magic"></i>
+                    <span>Recommendations</span>
+                </a>
+                <a href="booking.html" class="nav-link">
+                    <i class="fas fa-plane"></i>
+                    <span>Book Travel</span>
+                </a>
+                <a href="visualizations.html" class="nav-link">
+                    <i class="fas fa-images"></i>
+                    <span>My Gallery</span>
+                </a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-background">
+                <div class="hero-blob hero-blob-1"></div>
+                <div class="hero-blob hero-blob-2"></div>
+                <div class="hero-blob hero-blob-3"></div>
+            </div>
+            
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-magic"></i>
+                    <span>AI-Powered Travel Visualization</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    See Yourself
+                    <span class="gradient-text">Anywhere</span>
+                </h1>
+                
+                <p class="hero-description">
+                    Upload your photo and visualize yourself at any destination before you book. 
+                    AI-powered travel visualization that helps you plan your perfect trip.
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="upload.html" class="btn btn-primary btn-large">
+                        <i class="fas fa-camera"></i>
+                        Start Visualizing
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="destinations.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-globe"></i>
+                        Browse Destinations
+                    </a>
+                </div>
+                
+                <!-- Stats -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Happy Travelers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Destinations</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Visualizations Created</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Why Choose AI Travel?</h2>
+                    <p class="section-description">
+                        Experience the future of travel planning with cutting-edge AI technology
+                    </p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="feature-title">Lightning Fast</h3>
+                        <p class="feature-description">
+                            Generate stunning visualizations in seconds with our advanced AI technology
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="feature-title">Global Destinations</h3>
+                        <p class="feature-description">
+                            Explore thousands of destinations across all continents and cultures
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Privacy First</h3>
+                        <p class="feature-description">
+                            Your photos are processed securely and never stored permanently
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="section-description">
+                        Get started in just three simple steps
+                    </p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Upload Your Photo</h3>
+                        <p class="step-description">
+                            Upload a clear photo of yourself with your face visible
+                        </p>
+                        <div class="step-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Choose Destination</h3>
+                        <p class="step-description">
+                            Browse our collection of amazing destinations worldwide
+                        </p>
+                        <div class="step-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Get Your Visualization</h3>
+                        <p class="step-description">
+                            Receive your AI-generated travel photo in seconds
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">What Travelers Say</h2>
+                    <p class="section-description">
+                        Join thousands of satisfied travelers who've discovered their next destination
+                    </p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Amazing! I could see myself in Paris before booking. It helped me decide on the perfect spots to visit."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">S</div>
+                            <div class="author-info">
+                                <div class="author-name">Sarah M.</div>
+                                <div class="author-location">Paris, France</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "The AI quality is incredible! I showed my family and they couldn't believe it wasn't a real photo."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">M</div>
+                            <div class="author-info">
+                                <div class="author-name">Mike R.</div>
+                                <div class="author-location">Tokyo, Japan</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Perfect for planning my honeymoon! We tried multiple destinations and found our dream location."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">L</div>
+                            <div class="author-info">
+                                <div class="author-name">Lisa & Tom</div>
+                                <div class="author-location">Bali, Indonesia</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Promotion Section -->
+        <section class="booking-promotion">
+            <div class="container">
+                <div class="booking-promotion-content">
+                    <div class="booking-promotion-text">
+                        <h2 class="booking-promotion-title">
+                            Book Your Dream Trip
+                            <span class="gradient-text">Instantly</span>
+                        </h2>
+                        <p class="booking-promotion-description">
+                            From flights and hotels to activities and travel agents, book everything you need for your perfect trip in one place. Get the best deals and create unforgettable memories.
+                        </p>
+                        <div class="booking-promotion-features">
+                            <div class="booking-feature">
+                                <i class="fas fa-plane"></i>
+                                <span>Flights & Airlines</span>
+                            </div>
+                            <div class="booking-feature">
+                                <i class="fas fa-bed"></i>
+                                <span>Hotels & Resorts</span>
+                            </div>
+                            <div class="booking-feature">
+                                <i class="fas fa-hiking"></i>
+                                <span>Activities & Tours</span>
+                            </div>
+                            <div class="booking-feature">
+                                <i class="fas fa-suitcase"></i>
+                                <span>Travel Packages</span>
+                            </div>
+                            <div class="booking-feature">
+                                <i class="fas fa-user-tie"></i>
+                                <span>Travel Agents</span>
+                            </div>
+                        </div>
+                        <div class="booking-promotion-actions">
+                            <a href="booking.html" class="btn btn-primary btn-large">
+                                <i class="fas fa-plane"></i>
+                                Start Booking
+                            </a>
+                            <a href="destinations.html" class="btn btn-secondary btn-large">
+                                <i class="fas fa-globe"></i>
+                                Browse Destinations
+                            </a>
+                        </div>
+                    </div>
+                    <div class="booking-promotion-visual">
+                        <div class="booking-visual-card">
+                            <div class="booking-visual-header">
+                                <i class="fas fa-search"></i>
+                                <span>Search & Book</span>
+                            </div>
+                            <div class="booking-visual-content">
+                                <div class="booking-visual-item">
+                                    <i class="fas fa-plane"></i>
+                                    <span>New York → Paris</span>
+                                    <span class="price">$899</span>
+                                </div>
+                                <div class="booking-visual-item">
+                                    <i class="fas fa-bed"></i>
+                                    <span>Le Grand Hotel</span>
+                                    <span class="price">$350/night</span>
+                                </div>
+                                <div class="booking-visual-item">
+                                    <i class="fas fa-hiking"></i>
+                                    <span>Eiffel Tower Tour</span>
+                                    <span class="price">$89</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="cta-background">
+                <div class="cta-overlay"></div>
+            </div>
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to See Yourself Traveling?</h2>
+                <p class="cta-description">
+                    Join thousands of travelers who visualize before they book. Start your journey today!
+                </p>
+                <div class="cta-buttons">
+                    <a href="upload.html" class="btn btn-white btn-large">
+                        <i class="fas fa-camera"></i>
+                        Get Started Free
+                    </a>
+                    <a href="destinations.html" class="btn btn-outline btn-large">
+                        <i class="fas fa-globe"></i>
+                        Explore Destinations
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">
+                        <span>AI</span>
+                    </div>
+                    <span class="footer-logo-text">AI Travel</span>
+                </div>
+                <div class="footer-copyright">
+                    © 2024 AI Travel. Made with ❤️ for travelers worldwide.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
