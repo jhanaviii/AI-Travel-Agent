@@ -4,7 +4,7 @@ python-multipart
 python-dotenv
 supabase==2.16.0
 Pillow
-httpx>=0.24.0,<0.25.0
+httpx>=0.26,<0.29
 openai
 requests
 numpy
