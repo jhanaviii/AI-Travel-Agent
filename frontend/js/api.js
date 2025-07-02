@@ -1,7 +1,7 @@
 // API Service for Travel Agent App
 class APIService {
     constructor() {
-        this.baseURL = 'http://localhost:8000'; // FastAPI backend URL
+        this.baseURL = 'https://ai-travel-agent-backend.onrender.com'; // Deployed backend URL
         this.endpoints = {
             upload: '/api/upload-photo',
             destinations: '/api/destinations',
