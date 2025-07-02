@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Debounce the API call
                     debounceTimer = setTimeout(async () => {
                         try {
-                            const response = await fetch(`http://localhost:8000/api/destination-suggestions?query=${encodeURIComponent(query)}`);
+                            const response = await fetch(`https://ai-travel-agent-backend.onrender.com/api/destination-suggestions?query=${encodeURIComponent(query)}`);
                             const data = await response.json();
                             
                             if (data.suggestions && data.suggestions.length > 0) {
@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const searchData = getSearchData(type);
             
             // Call the API
-            const response = await fetch('http://localhost:8000/api/search-bookings', {
+            const response = await fetch('https://ai-travel-agent-backend.onrender.com/api/search-bookings', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
