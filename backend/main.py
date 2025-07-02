@@ -45,8 +45,7 @@ app.add_middleware(
         "http://localhost:5000", 
         "http://127.0.0.1:3000",
         "http://127.0.0.1:5000",
-        "https://your-app.vercel.app",
-        "https://your-domain.com"
+        "https://ai-travel-agent-frontend.onrender.com"
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -398,6 +397,12 @@ async def health_check():
         "services": {
             "supabase": supabase is not None,
             "face_swap": face_swap_service is not None
+        },
+        "details": {
+            "supabase_initialized": supabase is not None,
+            "supabase_connected": False,
+            "supabase_error": None,
+            "face_swap_available": face_swap_service is not None
         }
     }
     
@@ -407,12 +412,58 @@ async def health_check():
             # Simple query to test connection
             result = supabase.table("destinations").select("id").limit(1).execute()
             health_status["services"]["supabase"] = True
+            health_status["details"]["supabase_connected"] = True
+            health_status["details"]["destinations_count"] = len(result.data) if result.data else 0
         except Exception as e:
             logger.error(f"Supabase health check failed: {e}")
             health_status["services"]["supabase"] = False
+            health_status["details"]["supabase_connected"] = False
+            health_status["details"]["supabase_error"] = str(e)
             health_status["status"] = "degraded"
+    else:
+        health_status["details"]["supabase_error"] = "Supabase client not initialized"
     
     return health_status
+
+@app.get("/debug")
+async def debug_info():
+    """Debug endpoint to check environment variables and configuration"""
+    debug_info = {
+        "environment": {
+            "production": os.getenv("RENDER", "false").lower() == "true",
+            "port": os.getenv("PORT", "Not Set"),
+            "host": os.getenv("HOST", "Not Set")
+        },
+        "supabase": {
+            "url_set": bool(os.getenv("SUPABASE_URL")),
+            "key_set": bool(os.getenv("SUPABASE_KEY")),
+            "client_initialized": supabase is not None,
+            "connection_test": None
+        },
+        "openai": {
+            "key_set": bool(os.getenv("OPENAI_API_KEY"))
+        },
+        "services": {
+            "face_swap": face_swap_service is not None
+        }
+    }
+    
+    # Test Supabase connection if possible
+    if supabase:
+        try:
+            result = supabase.table("destinations").select("id").limit(1).execute()
+            debug_info["supabase"]["connection_test"] = {
+                "success": True,
+                "destinations_count": len(result.data) if result.data else 0
+            }
+        except Exception as e:
+            debug_info["supabase"]["connection_test"] = {
+                "success": False,
+                "error": str(e),
+                "error_type": type(e).__name__
+            }
+    
+    return debug_info
 
 @app.post("/api/upload-photo")
 async def upload_photo(
